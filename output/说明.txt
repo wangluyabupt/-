@@ -1,0 +1,16 @@
+test_bi.py是生成那个黑白照片的，与此文件夹爱无关
+test.py是测试os.work（）函数的，与此文件夹无关
+
+ori与ori_output都是script.py的输入，输出放在filtered里面
+
+注意，一开始怎么也改不对，但是突然发现用本地anaconda的operator interpreter就可以了，不然有个地方一直报错：
+#path_img_labeled_raw = os.path.join('CRA_ori', root.split('\\', 1)[1], file.split('_src_')[0] + '_label_' + file.split('_src_')[1])
+
+然后突然想到win系统路径是：\  来分割的；linux是：/
+然后改成：
+path_img_labeled_raw = os.path.join('CRA_ori' ,root.split('/', 1)[1] , file.split('_src_')[0] +'_label_' +file.split('_src_')[1])
+就成功用mapping的方式用服务器跑起来了
+
+            #path_output = os.path.join('filtered', root.split('\\', 1)[1])
+            path_output = os.path.join('filtered', root.split('/', 1)[1])
+            这个是同样的情况，都在script.py脚本里面

@@ -1,0 +1,12 @@
+代码初始地址：
+/home/DataBase1/wxf_tmp/共享数据/100layers_bi     11服务器
+
+修改了：yrl路径下的result_path与weight_path
+yrl路径是11服务器，我的程序跑在53，所以复制了weight_path里面的.th文件到了53自己的weights路径下
+
+一开始，就总是no tests ran in 0.38 seconds
+就是不运行
+
+然后查了一下，竟然是把test_bi.py改一个名字成为不以test来开头的py文件就可以了，我改成了taist.py
+
+这个代码一开头就写了cuda巴拉巴拉，所以mapping映射到服务器（有的程序代码兼容cpu，这个不兼容，没有选择项）
